@@ -5,24 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blurify</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
 </head>
 <body>
     <header>
         <div class="logo">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="8" fill="#4F46E5"/>
-                <path d="M9 16C9 12.134 12.134 9 16 9C19.866 9 23 12.134 23 16V23H9V16Z" fill="white" fill-opacity="0.5"/>
-                <path d="M12.5 16C12.5 14.067 14.067 12.5 16 12.5C17.933 12.5 19.5 14.067 19.5 16V23H12.5V16Z" fill="white"/>
-                </svg>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Blurify Logo" class="logo-image">
             <span>Blurify</span>
         </div>
         <nav>
-            <a href="#">How it Works</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Support</a>
+            <a href="/how-it-works">How it Works</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/support">Support</a>
         </nav>
     </header>
 
@@ -42,6 +36,33 @@
                     <p>Drag and drop your video file here, or click to browse</p>
                 </div>
                 <input type="file" id="file-input" accept="video/*" style="display: none;">
+            </div>
+            
+            <div class="video-preview-container" id="video-preview-container" style="display: none;">
+                <div class="video-preview">
+                    <video id="video-preview" muted>
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay" id="video-overlay">
+                        <div class="checkmark" id="checkmark" style="display: none;">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="40" fill="#4F46E5"/>
+                                <path d="M25 40L35 50L55 30" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-container" id="progress-container" style="display: none;">
+                <div class="progress-info">
+                    <span id="filename">filename.mp4</span>
+                    <span id="progress-percentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-status" id="progress-status">Uploading...</div>
             </div>
             
             <div id="status"></div>
