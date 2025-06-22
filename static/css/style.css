@@ -1,7 +1,7 @@
 body {
     background-color: #111827;
     color: #F9FAFB;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Satoshi', sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -30,6 +30,11 @@ header {
     width: 32px;
     height: 32px;
     border-radius: 8px;
+}
+
+div.logo{
+    color: #F9FAFB;
+    font-weight: 600;
 }
 
 nav {
@@ -96,6 +101,37 @@ main p {
     margin-bottom: 2rem;
 }
 
+.animated-line {
+  font-size: 1.2rem;
+  color: white;
+  font-family: inherit; /* keep your current font */
+  text-align: center;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.word-slider {
+  display: inline-block;
+  height: 1.2em; /* height of one word */
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.word-slider span {
+  display: block;
+  animation: slideWords 6s infinite;
+  color: #4F46E5;
+  font-weight: 600;
+}
+
+@keyframes slideWords {
+  0%   { transform: translateY(0%); }
+  25%  { transform: translateY(-100%); }
+  50%  { transform: translateY(-200%); }
+  75%  { transform: translateY(-300%); }
+  100% { transform: translateY(0%); }
+}
+
 #drop-zone {
     border: 2px dashed #4B5563;
     border-radius: 0.75rem;
@@ -104,6 +140,12 @@ main p {
     background-color: #1F2937;
     margin-bottom: 1.5rem;
     transition: background-color 0.2s, border-color 0.2s;
+}
+
+#drop-zone:hover {
+    background-color: #374151;
+    border-color: #6B7280;
+    transition-duration: 0.7s;
 }
 
 #drop-zone.dragover {
@@ -298,6 +340,15 @@ main p {
     margin-bottom: 1rem;
 }
 
+.policy-section ul {
+  background-color: #1F2937; /* dark background */
+  border: 1px solid #374151; /* subtle border */
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .policy-section ul, .support-section ul {
     color: #9CA3AF;
     line-height: 1.6;
@@ -334,6 +385,11 @@ main p {
     border: 1px solid #374151;
 }
 
+.step:hover {
+    background-color: #374151;
+    transition-duration: 0.7s;
+}
+
 .step-number {
     background-color: #4F46E5;
     color: white;
@@ -352,7 +408,7 @@ main p {
 .step-content h3 {
     color: #F9FAFB;
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
@@ -381,6 +437,11 @@ main p {
     text-align: center;
 }
 
+.feature:hover {
+    background-color: #374151;
+    transition-duration: 0.7s;
+}
+
 .feature-icon {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -389,7 +450,7 @@ main p {
 .feature h4 {
     color: #F9FAFB;
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0.75rem;
 }
 
@@ -443,12 +504,35 @@ main p {
     margin-bottom: 1rem;
 }
 
+.faq-item:hover, .issue-item:hover {
+    background-color: #374151;
+    transition-duration: 0.7s;
+}
+
 .faq-item h3, .issue-item h3 {
     color: #F9FAFB;
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0.75rem;
 }
+
+.faq-container {
+    display: flex;
+    flex-direction: column; /* Stacks FAQ items vertically */
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Makes each FAQ item a horizontal row */
+.faq-item {
+    display: flex;          
+    align-items: flex-start;
+    gap: 1.5rem;            
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 .faq-item p, .issue-item p {
     color: #9CA3AF;
@@ -456,42 +540,27 @@ main p {
     margin: 0;
 }
 
-.contact-methods {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.issue-container {
+    display: flex;
+    flex-direction: row;
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;        /* Allow items to wrap to next line if needed */
+    padding: 1rem 0;
 }
 
-.contact-method {
-    background-color: #1F2937;
+.issue-item {
+    background: #374151;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
-    border-radius: 0.75rem;
-    border: 1px solid #374151;
-    text-align: center;
+    flex: 1 1 300px;        /* Grow, shrink, with 300px base width */
+    min-width: 250px;       /* Minimum width before wrapping */
+    max-width: 400px;       /* Maximum width to prevent boxes from getting too wide */
 }
 
-.contact-method h4 {
-    color: #F9FAFB;
-    font-size: 1.125rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
 
-.contact-method p {
-    color: #9CA3AF;
-    margin-bottom: 1rem;
-}
-
-.contact-link {
-    color: #818cf8;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.contact-link:hover {
-    text-decoration: underline;
-}
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -520,3 +589,4 @@ main p {
         max-width: 100%;
     }
 } 
+
