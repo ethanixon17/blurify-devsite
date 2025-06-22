@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Veil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="#4F46E5"/>
+                <path d="M9 16C9 12.134 12.134 9 16 9C19.866 9 23 12.134 23 16V23H9V16Z" fill="white" fill-opacity="0.5"/>
+                <path d="M12.5 16C12.5 14.067 14.067 12.5 16 12.5C17.933 12.5 19.5 14.067 19.5 16V23H12.5V16Z" fill="white"/>
+                </svg>
+            <span>Visual Veil</span>
+        </div>
+        <nav>
+            <a href="#">How it Works</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Support</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-content">
+            <h1>Visual Veil</h1>
+            <p>Video privacy protection. Automatically blur your videos.</p>
+            
+            <div id="drop-zone">
+                <div class="drop-zone-inner">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="8" width="40" height="32" rx="4" stroke="#9CA3AF" stroke-width="2"/>
+                        <path d="M18 24L24 18L30 24" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M24 18V30" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                    <p><b>Upload Video</b></p>
+                    <p>Drag and drop your video file here, or click to browse</p>
+                </div>
+                <input type="file" id="file-input" accept="video/*" style="display: none;">
+            </div>
+            
+            <div id="status"></div>
+            
+            <button id="select-video-btn">Select Video File</button>
+        </div>
+    </main>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
